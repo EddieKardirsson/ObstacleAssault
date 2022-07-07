@@ -3,6 +3,8 @@
 
 #include "MovingPlatform.h"
 
+#include "GameFramework/Character.h"
+
 // Sets default values
 AMovingPlatform::AMovingPlatform()
 {
@@ -15,10 +17,9 @@ AMovingPlatform::AMovingPlatform()
 void AMovingPlatform::BeginPlay()
 {
 	Super::BeginPlay();
+		
 
-	//MyX = MyVector.X;
-
-	MyVector.Y = MyX;
+	SetActorLocation(MyVector);
 }
 
 // Called every frame

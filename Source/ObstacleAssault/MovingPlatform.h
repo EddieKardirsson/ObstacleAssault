@@ -25,11 +25,14 @@ public:
 
 private:
 
-	UPROPERTY(EditAnywhere, Category="MovingPlatform")
+	UPROPERTY(EditAnywhere, Category="Translation")
 	FVector PlatformVelocity = FVector(100, 0, 0);
 
-	UPROPERTY(EditAnywhere, Category = "MovingPlatform")
-	float MovedDistance = 100;
+	UPROPERTY(EditAnywhere, Category = "Translation")
+	float MaxDistance = 100;
+
+	UPROPERTY(EditAnywhere, Category = "Rotation")
+	FRotator RotationVelocity;
 
 	FVector StartingLocation;
 

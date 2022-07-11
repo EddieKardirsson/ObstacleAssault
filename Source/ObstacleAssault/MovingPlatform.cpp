@@ -38,7 +38,7 @@ void AMovingPlatform::MovePlatform(float DeltaTime)
 {
 	if (ShouldPlatformReturn()) {		
 		FVector MoveDirection = PlatformVelocity.GetSafeNormal();
-		StartingLocation += MoveDirection * MovedDistance;
+		StartingLocation += MoveDirection * MaxDistance;
 		SetActorLocation(StartingLocation);
 		PlatformVelocity = -PlatformVelocity;
 	}else{
@@ -50,12 +50,12 @@ void AMovingPlatform::MovePlatform(float DeltaTime)
 
 void AMovingPlatform::RotatePlatform(float DeltaTime)
 {
-	UE_LOG(LogTemp, Error, TEXT("RotatePlatform called by %s: Delta: %f"), *GetName(), DeltaTime);
+	AddActorLocalRotation(RotationVelocity * DeltaTime);
 }
 
 bool AMovingPlatform::ShouldPlatformReturn() const
 {
-	return GetDistanceMoved() > MovedDistance;
+	return GetDistanceMoved() > MaxDistance;
 }
 
 float AMovingPlatform::GetDistanceMoved() const

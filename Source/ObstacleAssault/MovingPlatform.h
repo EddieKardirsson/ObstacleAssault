@@ -23,13 +23,15 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-private:
+protected:
 
-	UPROPERTY(EditAnywhere, Category="Translation")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Translation")
 	FVector PlatformVelocity = FVector(100, 0, 0);
 
-	UPROPERTY(EditAnywhere, Category = "Translation")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Translation")
 	float MaxDistance = 100;
+
+private:
 
 	UPROPERTY(EditAnywhere, Category = "Rotation")
 	FRotator RotationVelocity;
